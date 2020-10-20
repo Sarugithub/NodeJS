@@ -1,0 +1,19 @@
+{
+  "name": "testapp",
+  "version": "1.0.0",
+  "description": "This is my testapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "edureka"
+  ],
+  "author": "saru",
+  "license": "ISC",
+  "dependencies": {
+    "express.js": "^1.0.0",
+    "zone.js": "^0.10.2"
+  }
+}

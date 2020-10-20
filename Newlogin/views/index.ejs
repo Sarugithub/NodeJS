@@ -1,0 +1,25 @@
+<html>
+<head>
+
+</head>
+<body>
+    <form action="/api/auth/login" method="POST">
+        <h1> Welcome to abc Website</h1>
+        <br>
+        <br>
+        <p> <%=msg%> </p>
+        <label for = "email"> Email </label>
+        <input type="text" id="email" name = "email"/>
+        <label for = "password"> Password </label>
+        <input type="password" id="pwd" name ="password"/>
+        <br>
+        <br>
+        <button type="submit">Login</button>
+        <br>
+        <br>
+        <span> Do you have account?? </span>
+        <a href= "/users/signup">Sign Up </a>
+
+    </form>
+</body>
+</html>

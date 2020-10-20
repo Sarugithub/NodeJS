@@ -1,0 +1,66 @@
+var express = require ('express');
+var app = express();
+var fs = require('fs');
+var moviesRouter = express.Router();
+var productRouter = express.Router();
+
+
+var port = 8800;
+
+app.get('/', function(req, res)
+   {
+        res.send("This is from express");       
+   });
+/*
+app.get('/profile', function(req,res)
+{
+    res.send("This is profile page");
+});
+*/
+app.get('/movies', function(req,res)
+{
+    fs.readFile('movies.json', 'utf-8', function(err, data)
+    {
+        if (err) throw err;
+        res.send(data);
+    })
+
+});
+
+app.get('/details', function (req, res)
+{
+    res.send('Movies Details page');
+});
+
+app.get('/products', function(req,res)
+{
+    fs.readFile('prod.json', 'utf-8', function(err, data)
+    {
+        if (err) throw err;
+        res.send(data);
+    })
+
+});
+
+app.get('/details', function (req, res)
+{
+    res.send('Product Details page');
+});
+
+app.listen(port, function(err){
+
+    if (err) throw err;
+    ;
+    console.log("Server is running on port no 8800")
+});
+
+
+// CRUD
+/* C - Create (Post operation)
+   R - Read (Get - Read)
+   U - Update (Put)
+   D - Delete (Delete)
+
+   */
+  
+    

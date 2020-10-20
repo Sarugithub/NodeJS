@@ -1,0 +1,72 @@
+var express = require ('express');
+var app = express();
+var fs = require('fs');
+var moviesRouter = express.Router();
+var productsRouter = express.Router();
+
+
+var port = 8800;
+
+app.get('/', function(req, res)
+   {
+        res.send("This is from express");       
+   });
+
+
+moviesRouter.route('/')
+    .get(function(req,res){
+                fs.readFile('movies.json', 'utf-8', function(err, data){
+                    if (err) throw err;
+                    res.send(data)
+                })      
+    });
+    
+moviesRouter.route('/details')
+    .get(function(req,res){
+        res.send("Movies details page")
+    });
+
+
+productsRouter.route('/')
+    .get(function(req,res){
+                fs.readFile('prod.json', 'utf-8', function(err, data){
+                    if (err) throw err;
+                    res.send(data)
+                })      
+    });
+    
+productsRouter.route('/details')
+    .get(function(req,res){
+        res.send("Product details page")
+    });
+
+app.use('/movies', moviesRouter); // use is one of the property that helps to bind the routes
+app.use('/products', productsRouter)
+
+app.listen(port, function(err){
+
+    if (err) throw err;
+    ;
+    console.log("Server is running on port no 8800")
+});
+
+
+// CRUD
+/* C - Create (Post operation)
+   R - Read (Get - Read)
+   U - Update (Put)
+   D - Delete (Delete)
+
+   */
+  
+    
+
+    <% for(i=0; i<prod.length; i++) {%>
+
+        <h3> Product Info   </h3>
+        <h4> <%= prod[i].Pname %> </h4>
+        <h4> <%= prod[i].Price %> </h4>
+       <h5>  <a href = "/products/details/<%= prod[i]._id %>"> </a>> Read More </a> </h5>
+
+
+    <%}%>
